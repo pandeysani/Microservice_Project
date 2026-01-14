@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
 				() -> new ResourceNotFoundException("User with given idn is not found on server  !! :" + userId));
 		// http://localhost:8083/ratings/users/2ba052d5-272c-453b-a079-febe735a9fda
 		Rating[] ratingOfUser = restTemplate
-				.getForObject("http://RATING_SERVICE/ratings/users/" + user.getUserId(), Rating[].class);
+				.getForObject("http://RATING-SERVICE/ratings/users/" + user.getUserId(), Rating[].class);
 		logger.info("{}", ratingOfUser);
 		List<Rating> ratings = Arrays.stream(ratingOfUser).toList();
 		List<Rating> ratingList = ratings.stream().map(rating -> {
